@@ -180,9 +180,9 @@ button:hover {
 
 h2 {
   font-family: 'Staatliches', sans-serif;
-  font-size: 30px;
-  color: #0B565B;
-  
+  font-size: 40px;
+   color: #0B565B;
+
   }
 
 .inspo-description {
@@ -215,13 +215,18 @@ h2 {
 
 .packages {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
   align-content: center;
   align-items: center;
   justify-content: center;
   padding: 20px;
 }
+
+
+/*overlay*/
+
+
 
 .package1, .package2, .package3 {
   width: 100%;
@@ -231,21 +236,35 @@ h2 {
   text-align: center;
 }
 
-.package1 h2, .package2 h2, .package3 h2 {
+
+
+.details {
+  display: block;
+  color: tomato;
+  background: mistyrose;
+  padding-bottom: 2px;
+  transition: .5s;
+}
+
+.details:hover {
+    background: tomato;
+    padding-bottom: 2px;
+    color: white;
+}
+.level {
   color: tomato;
 }
 
-.details {
-  border: solid 4px tomato;
-  background: mistyrose;
-  padding-bottom: 20px;
+.level:hover {
+  color: white;
+  transition-duration: .6s;
 }
+
 
 .package-description {
   background: white;
   text-align: left;
   text-decoration: none;
-
 }
 
 .package-description h2 {
