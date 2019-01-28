@@ -16,15 +16,35 @@ body {
   margin: 60px 20px 60px 20px;
   }
 
+
 .item3 {
   align-items: center;
 }
 
 .head a {
+  text-align: center;
+  background: transparent;
   padding: 15px;
+  width: 100px;
   color: #0B565B;
   text-decoration: none;
-}
+  -webkit-transition-duration: 1.5; /* Safari */
+  transition-duration: 1.5s;
+  transition-timing-function: ease-in-out;
+  }
+
+.head a:hover {
+  text-align: center;
+  background: #c5d2d6;
+  width: 150px;
+  }
+
+  .head a:focus {
+    text-align: center;
+    background: #c5d2d6;
+    width: 150px;
+    }
+
 
 .wrapper {
     display: grid;
@@ -64,6 +84,7 @@ body {
      "cta";
     margin: 60px 0px ;
   }
+
    .hero {
      grid-template-columns: 1fr;
    }
@@ -178,12 +199,17 @@ button:hover {
 }
 
 
+h1 {
+  font-family: 'Staatliches', sans-serif;
+  font-size: 60px;
+  color: #0B565B;
+  }
+
 h2 {
   font-family: 'Staatliches', sans-serif;
   font-size: 40px;
-   color: #0B565B;
-
-  }
+  color: #0B565B;
+    }
 
 .inspo-description {
    font-family: 'Quicksand', sans-serif;
@@ -207,9 +233,9 @@ h2 {
 /*packages*/
 
 .wrapper-classes {
-  dispaly: grid;
+  display: grid;
   grid-template-columns: 1fr;
-  margin: 100px 0 100px 0;
+  margin: 100px 50 100px 0;
   background: #f4f7f5;
 }
 
@@ -218,46 +244,133 @@ h2 {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
   align-content: center;
-  align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding:20px 50px;
 }
 
 
-/*overlay*/
+.package {
+  /*
+    [1] center content vertically
+    [2] first child gets 200px height and the second child takes the remaining height
+  */
 
-
-
-.package1, .package2, .package3 {
-  width: 100%;
-  display: grid;
+  display: grid; /* [1] */
   grid-gap: 20px;
-  grid-template-rows: 200px 1fr;
+  grid-template-rows: 200px 1fr; /* [2] */
+  align-content: center; /* [1] */
   text-align: center;
 }
 
 
+.package:hover .package-description {
+  display: block;
+}
+.package-description {
+  display: none;
+}
+
+/* state b of packages */
+
+
+
+/* B State: expand one box
+
+.packages.is-expanded {
+  dispaly: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  grid-template-areas:
+    "box1   box1   box1"
+    "box2   box3   box4";
+
+    -----
+
+    .packages.expanded {
+      dispaly: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 20px;
+      }
+
+
+      .package1.xexpanded {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-rows: 200px 1fr;
+        grid-row: 1 /  span 2;
+        align-content: center;
+        text-align: center;
+        }
+
+        .package2.expanded {
+          display: grid;
+          grid-gap: 20px;
+          grid-template-rows: 200px 1fr;
+          grid-row: 1 / span 2;
+          align-content: center;
+          text-align: center;
+
+        }
+
+
+      .package3. expanded {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-rows: 200px 1fr;
+        grid-row: 1 /  span 2;
+        align-content: center;
+        text-align: center;
+      }
+
+
+
+
+
+
+      */
+
+
+
+/* previous version
+
+
+.package.is-opened {
+  grid-column-start: 1 ;
+  grid-column-end:4;
+  /* grid-template-columns: 1fr;
+
+}
+
+.package.is-opened .package-description{
+  background: yellow;
+  display: block;
+}
+*/
+
+
+
+
+
 
 .details {
-  display: block;
-  color: tomato;
   background: mistyrose;
-  padding-bottom: 2px;
   transition: .5s;
 }
 
 .details:hover {
-    background: tomato;
-    padding-bottom: 2px;
-    color: white;
+  color: white;
+  background: tomato;
+  padding-bottom: 2px;
+  color: white;
 }
-.level {
-  color: tomato;
+/* also override the color of the level (which is set to tomato) */
+.details:hover .level {
+  color: inherit;
+  transition-duration: .6s;
 }
 
-.level:hover {
-  color: white;
-  transition-duration: .6s;
+.level {
+  color: tomato;
 }
 
 
